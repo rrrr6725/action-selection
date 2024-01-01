@@ -1,5 +1,5 @@
 ロボコンサークルで作ったプログラムです。  
-ロボットの行動選択を定義します。  
+"smach"というライブラリを使ってロボットの行動選択を定義します。  
 ROS(Robot Operating System)というソフトウェアプラットフォーム上で動くコードです。  
   
 publisher_node.pyを実行すると数値の入力待ちになります。  
@@ -13,3 +13,6 @@ smach_simple4.pyで状態遷移を定義しています。
 入力値が１の場合：  
 　　initialize --> search --> harvest --> storage --> prepare -->initialize ...  
 　　のループを３回繰り返したのち、プログラムを終了。  
+
+（参考）smachについて  
+https://wiki.ros.org/ja/smach
