@@ -23,7 +23,6 @@ class Initialize(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['done', 'exit'])
         self.sub_value = None 
-        
         self.subscriber = rospy.Subscriber('input_value', Int32, self.callback)
         
     def callback(self, data):
