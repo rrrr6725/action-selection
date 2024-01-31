@@ -11,9 +11,11 @@ from std_msgs.msg import Int32
 # Wait State: Pauses the execution for 5 seconds
 class Wait(smach.State):
     def __init__(self):
+        # Initialize the state with the outcome 'next'
         smach.State.__init__(self, outcomes=['next'])
 
     def execute(self, userdata):
+        # Log the information and sleep for 5 seconds
         rospy.loginfo('Wait for 5 seconds')  
         rospy.sleep(5.0) 
         return 'next'
@@ -21,14 +23,17 @@ class Wait(smach.State):
 # Initialize State: Subscribes to a topic and processes received messages
 class Initialize(smach.State):
     def __init__(self):
+        # Initialize the state with outcomes 'done' and 'exit'
         smach.State.__init__(self, outcomes=['done', 'exit'])
         self.sub_value = None 
         self.subscriber = rospy.Subscriber('input_value', Int32, self.callback)
         
     def callback(self, data):
+        # Callback function to process received messages
         self.sub_value = data.data
         rospy.loginfo("Received: %d", self.sub_value)
         
+        # Check the received value and set the transition accordingly
         if self.sub_value == 1:
             self.subscriber.unregister() 
             self.subscriber = None  
@@ -41,6 +46,7 @@ class Initialize(smach.State):
             rospy.logwarn('Invalid input. Please enter 0 or 1.')
 
     def execute(self, userdata):
+        # Execute function to wait for a valid transition
         self.execute_transition = None  
         
         while not self.execute_transition:
@@ -51,10 +57,12 @@ class Initialize(smach.State):
 # Search State: Simulates a searching action and iterates for a certain count
 class Search(smach.State):
     def __init__(self):
+        # Initialize the state with outcomes 'done' and 'continue'
         smach.State.__init__(self, outcomes=['done', 'continue'])
         self.counter = 0
 
     def execute(self, userdata):
+        # Execute function to simulate searching
         rospy.loginfo('Searching...') 
         rospy.sleep(1.0) 
         if self.counter < 3: 
@@ -66,9 +74,11 @@ class Search(smach.State):
 # Harvest State: Simulates a harvesting action
 class Harvest(smach.State):
     def __init__(self):
+        # Initialize the state with outcome 'done'
         smach.State.__init__(self, outcomes=['done'])
 
     def execute(self, userdata):
+        # Execute function to simulate harvesting
         rospy.loginfo('Harvesting...')  
         rospy.sleep(1.0) 
         return 'done'
@@ -76,9 +86,11 @@ class Harvest(smach.State):
 # Storage State: Simulates a storage action
 class Storage(smach.State):
     def __init__(self):
+        # Initialize the state with outcome 'done'
         smach.State.__init__(self, outcomes=['done'])
 
     def execute(self, userdata):
+        # Execute function to simulate storing
         rospy.loginfo('Storaging...')  
         rospy.sleep(1.0)  
         return 'done'
@@ -86,9 +98,11 @@ class Storage(smach.State):
 # Prepare State: Simulates a preparation action
 class Prepare(smach.State):
     def __init__(self):
+        # Initialize the state with outcome 'done'
         smach.State.__init__(self, outcomes=['done'])
 
     def execute(self, userdata):
+        # Execute function to simulate preparation
         rospy.loginfo('Preparing...')  
         rospy.sleep(1.0)  
         return 'done'
