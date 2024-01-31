@@ -15,9 +15,9 @@ smach_simple4.pyで状態遷移を定義しています。
 　　initialize --> search --> harvest --> storage --> prepare -->initialize ...  
 　　のループを３回繰り返したのち、プログラムを終了。  
     
-  参考文献：
-  https://qiita.com/srs/items/3f5acc64a2faac48b63d 
-
+  参考文献：  
+  https://qiita.com/srs/items/3f5acc64a2faac48b63d   
+  
 （参考）ROSについて  
  https://wiki.ros.org/ja  
    
