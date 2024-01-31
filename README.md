@@ -14,6 +14,9 @@ smach_simple4.pyで状態遷移を定義しています。
 入力値が１の場合：  
 　　initialize --> search --> harvest --> storage --> prepare -->initialize ...  
 　　のループを３回繰り返したのち、プログラムを終了。  
-
-（参考）smachについて  
-https://wiki.ros.org/ja/smach
+    
+  （参考）ROSについて  
+   https://wiki.ros.org/ja  
+   
+  （参考）smachについて  
+   https://wiki.ros.org/ja/smach
