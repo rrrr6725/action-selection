@@ -12,7 +12,7 @@ smach_simple4.pyで状態遷移を定義しています。
 入力値が０の場合：  
 　　プログラムを終了。  
 入力値が１の場合：  
-　　initialize --> search --> harvest --> storage --> prepare -->initialize ...  
+　　initialize --> search --> harvest --> storage --> prepare --> search ...  
 　　のループを３回繰り返したのち、プログラムを終了。  
 
 https://github.com/rrrr6725/action-selection/assets/84482770/030f302d-0c94-446a-94e6-79a752911dae
